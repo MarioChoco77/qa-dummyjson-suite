@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "ProductCreatedOrUpdated",
+  "type": "object",
+  "required": ["id"],
+  "properties": {
+    "id":    { "type": "integer", "minimum": 1 },
+    "title": { "type": "string" },
+    "price": { "type": "number" }
+  }
+}

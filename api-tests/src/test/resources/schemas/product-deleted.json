@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "ProductDeleted",
+  "type": "object",
+  "required": ["id", "title", "isDeleted", "deletedOn"],
+  "properties": {
+    "id":        { "type": "integer", "minimum": 1 },
+    "title":     { "type": "string" },
+    "isDeleted": { "type": "boolean", "enum": [true] },
+    "deletedOn": { "type": "string", "minLength": 1 }
+  }
+}
