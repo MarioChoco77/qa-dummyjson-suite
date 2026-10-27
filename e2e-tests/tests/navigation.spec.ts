@@ -16,7 +16,11 @@ test.describe('Navegación del catálogo', () => {
   test('abrir el detalle de un producto y volver al catálogo', async ({ loggedInInventory, page }) => {
     await loggedInInventory.openProduct('Sauce Labs Backpack');
     await expect(page).toHaveURL(/inventory-item\.html\?id=4/);
+
+    // Esperar a que la vista de detalle esté realmente renderizada (la URL cambia antes que el DOM)
+    await expect(page.getByTestId('back-to-products')).toBeVisible();
     await expect(page.getByTestId('inventory-item-name')).toHaveText('Sauce Labs Backpack');
+
     await page.getByTestId('back-to-products').click();
     await loggedInInventory.expectLoaded();
   });
